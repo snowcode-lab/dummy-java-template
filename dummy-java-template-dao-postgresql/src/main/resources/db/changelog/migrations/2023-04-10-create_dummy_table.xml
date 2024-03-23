@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="SNO-11" author="Eugene_Maksymets">
+        <preConditions>
+            <not>
+                <tableExists tableName="dummy"/>
+            </not>
+        </preConditions>
+        <createTable tableName="dummy">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             primaryKeyName="pk_dummy"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <sql>drop table if exists dummy;</sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

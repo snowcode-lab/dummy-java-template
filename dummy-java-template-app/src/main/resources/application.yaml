@@ -1,0 +1,13 @@
+spring.application.name: dummy-java-template
+
+logging:
+  level:
+    root: WARN
+    com.snowcode.lab.dummy.java.template: INFO
+
+server:
+  error:
+    include-message: always
+    include-exception: false
+    include-stacktrace: never
+    include-binding-errors: always

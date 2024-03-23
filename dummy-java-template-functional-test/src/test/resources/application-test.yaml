@@ -1,0 +1,10 @@
+spring.datasource.url: jdbc:tc:postgresql:15.4:///integration-dummy-db
+
+logging:
+  level:
+    com.snowcode.lab.dummy.java.template: DEBUG
+
+server:
+  error:
+    include-message: always
+    whitelabel.enabled: true
