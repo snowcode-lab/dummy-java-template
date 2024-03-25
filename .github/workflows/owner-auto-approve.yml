@@ -1,0 +1,16 @@
+name: java-service-ci
+on:
+  pull_request_target: # This event is triggered when a pull request is assigned to the repository owner
+    types: [ opened ]
+    branches:
+      - develop
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    needs: [ java-build ]
+    permissions:
+      pull-requests: write
+    if: github.event.pull_request.user.login == 'emax19'
+    steps:
+      - uses: hmarr/auto-approve-action@v4
